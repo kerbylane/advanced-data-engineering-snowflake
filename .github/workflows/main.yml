@@ -5,11 +5,11 @@ on:
     types: [closed]
     branches:
       - staging
-      - main
+      - class-changes
   push:
     branches:
       - staging
-      - main
+      - class-changes
 
 jobs:
   deploy_data_environment:
@@ -37,7 +37,7 @@ jobs:
           if [[ $TARGET_BRANCH == "staging" ]]; then
             echo "DEPLOY_ENV=staging" >> $GITHUB_ENV
             echo "Environment set to staging"
-          elif [[ $TARGET_BRANCH == "main" ]]; then
+          elif [[ $TARGET_BRANCH == "class-changes" ]]; then
             echo "DEPLOY_ENV=prod" >> $GITHUB_ENV
             echo "Environment set to production"
           else
